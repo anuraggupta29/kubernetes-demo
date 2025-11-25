@@ -1,0 +1,18 @@
+Run commands:
+
+1. kubectl create -f ./voting-app-minikube
+This will create all kubernetes resources in that folder.
+wait for some time as it will download containers and start them
+
+2. check status with command:
+kubectl get all
+
+4. If using in windows with docker driver you cannot access services with minikube_node_ip:node_port
+So, separately start the service using command (in separate terminals):
+
+minikube service vote
+minikube service result
+
+This will create a port forwarding from localhost:port to minikube_node_ip:node_port
+
+5. Use the localhost url provided to access the services.

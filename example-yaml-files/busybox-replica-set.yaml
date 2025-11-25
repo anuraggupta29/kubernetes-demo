@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: busybox-replica-set
+  labels:
+    app: busybox-replica-set-label
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: busybox-pod-label
+  template:
+    metadata:
+      name: busybox-pod
+      labels:
+        app: busybox-pod-label
+    spec:
+      containers:
+        - name: busybox-container
+          image: busybox
+          tty: true
+          stdin: true
+          command: ["sh", "-c", "sleep 3600"] # busybox is a shell, it will exit if you dont run anything. So execute this to Keep the pod running

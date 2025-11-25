@@ -1,0 +1,21 @@
+1. Install VirtualBox and Vagrant.
+
+2. In cmd run the file kodecloud-course-kubeadm-clusters\virtualbox\Vagrantfile
+
+3. Install vagrant-vbguest (we need it to have a sync folder with windows to easily transfer files).
+   Run following commands in cmd where vagrantfile is present:
+   vagrant plugin install vagrant-vbguest
+   vagrant reload
+
+4. Login to the controlplane, node01, node02 using command:
+   vagrant ssh controlplane   # similar for node01, node02 in different terminal
+
+5. Inside the Linux VM, check the folder:
+   /vagrant
+
+   You should be able to see the contents of virtualbox folder (from windows).
+   We will need files from /vagrant/voting-app to deploy out voting-app.
+
+6. Follow the instructions in kodecloud-course-kubeadm-clusters\generic to setup kubernetes cluster.
+
+7. Deploy the voting-app similar to minikube

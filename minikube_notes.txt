@@ -1,0 +1,29 @@
+1. Install Docker Desktop + Linux WSL for windows
+2. Install Minikube
+3. Install kubectl
+4. Set environment variable for Minikube and kubectl (the folder where minikube.exe and kubectl.exe is present)
+setx PATH "$env:PATH;C:\tools\kubectl;C:\tools\minikube"
+
+5. Run minikube from CMD
+minikube start --driver=docker
+
+6. Success response:
+PS E:\DevWorkspace\KubernetesDemo> minikube start --driver=docker
+😄  minikube v1.37.0 on Microsoft Windows 11 Home Single Language 10.0.26200.7171 Build 26200.7171
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.48 ...
+🤷  docker "minikube" container is missing, will recreate.
+🔥  Creating docker container (CPUs=2, Memory=4000MB) ... 
+❗  Failing to connect to https://registry.k8s.io/ from inside the minikube container
+💡  To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+🐳  Preparing Kubernetes v1.34.0 on Docker 28.4.0 ... 
+🔗  Configuring bridge CNI (Container Networking Interface) ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS E:\DevWorkspace\KubernetesDemo>
+
+7. you can now run kubectl commands inside it.
+eg. kubectl get all

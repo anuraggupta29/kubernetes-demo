@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: example-replica-set
+  labels:
+    app: example-replica-set-label
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: example-pod-label
+  template:
+    metadata:
+      name: example-pod
+      labels:
+        app: example-pod-label
+    spec:
+      containers:
+        - name: example-container
+          image: example

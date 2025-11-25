@@ -1,0 +1,79 @@
+Main Commands:
+kubectl create -f <yaml_file>             # create resource based on yaml file
+kubectl delete <pod/deployment/service etc> <name>    # delete resource
+kubectl apply -f <yaml_file>              # update the resource
+kubectl get pods
+kubectl get all
+
+
+🚀 Cluster Info
+kubectl version                           # Show client & server version
+kubectl cluster-info                      # Show cluster master & service endpoints
+kubectl get nodes                          # List all cluster nodes
+kubectl describe node <node>               # Detailed info about a node
+
+📦 Pods
+kubectl get pods                           # List pods in current namespace
+kubectl get pods -o wide                   # List pods with node/IP details
+kubectl describe pod <pod>                 # Detailed pod info & events
+kubectl logs <pod>                         # View pod logs
+kubectl logs -f <pod>                      # Stream live logs
+kubectl exec -it <pod> -- /bin/bash        # Open shell inside a pod
+kubectl delete pod <pod>                   # Delete a pod
+
+⚙️ Deployments
+kubectl get deploy                          # List deployments
+kubectl describe deploy <deploy>            # Show deployment details
+kubectl edit deploy <deploy>                # Edit deployment live
+kubectl scale deploy <deploy> --replicas=N  # Scale number of pods
+kubectl rollout status deploy <deploy>      # Check rollout progress
+kubectl rollout undo deploy <deploy>        # Roll back the deployment
+
+🔁 ReplicaSets
+kubectl get rs                              # List ReplicaSets
+kubectl describe rs <rs>                    # Detailed ReplicaSet info
+kubectl delete rs <rs>                      # Delete a ReplicaSet
+
+🌐 Services
+kubectl get svc                             # List services
+kubectl describe svc <svc>                  # Detailed service info
+kubectl edit svc <svc>                      # Edit a service
+minikube service <svc>                      # Open service URL (Minikube)
+
+📥 ConfigMaps
+kubectl get cm                              # List ConfigMaps
+kubectl describe cm <cm>                    # Show ConfigMap details
+kubectl create cm <name> --from-file=F      # Create ConfigMap from file
+
+🔐 Secrets
+kubectl get secret                           # List Secrets
+kubectl describe secret <secret>             # Show metadata of a Secret
+kubectl create secret generic <name> --from-literal=key=value  
+                                             # Create Secret from literal value
+
+📄 YAML Apply/Delete
+kubectl apply -f file.yaml                  # Create/update resources
+kubectl apply -f folder/                    # Apply all YAML in folder
+kubectl delete -f file.yaml                 # Delete resources from YAML
+
+🔍 Debugging / Troubleshooting
+kubectl get events --sort-by=.metadata.creationTimestamp  
+                                             # Show events sorted by time
+kubectl describe pod <pod>                   # Show pod errors & state
+kubectl logs <pod> -f                        # Stream logs
+kubectl exec -it <pod> -- sh                 # Exec into pod (sh)
+
+🗂 Namespaces
+kubectl get ns                               # List namespaces
+kubectl create ns <name>                     # Create namespace
+kubectl delete ns <name>                     # Delete namespace
+kubectl config set-context --current --namespace=<ns>  
+                                             # Set default namespace
+
+📊 Resource Metrics
+kubectl top pods                             # Show pod CPU & memory usage
+kubectl top nodes                            # Show node CPU & memory usage
+
+⭐ General Shortcuts
+kubectl get all                              # List all resources in namespace
+kubectl get pod -A                           # List pods in all namespaces

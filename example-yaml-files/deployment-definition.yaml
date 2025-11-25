@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+  labels:
+    app: example-deployment-label
+    tier: example-tier-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: example-pod-label
+  template:
+    metadata:
+      name: example-pod
+      labels:
+        app: example-pod-label
+    spec:
+      containers:
+        - name: example-container
+          image: example
