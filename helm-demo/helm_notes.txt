@@ -1,0 +1,24 @@
+1. Installing chocolatey
+follow https://chocolatey.org/install
+
+2. Installing Helm
+To install, run the command choco install kubernetes-helm. 
+Verify the installation worked by running the command Helm version --short. You should see information about your version of Helm. 
+To uninstall, run the command choco uninstall kubernetes-helm. 
+
+
+3. Run your minikube cluster
+
+
+4. create a namespace cert-manager using command
+kubectl create ns cert-manager
+
+
+5. Install cert-manager
+Enter following command:
+helm install    cert-manager oci://quay.io/jetstack/charts/cert-manager    --version v1.19.1    --namespace cert-manager    --create-namespace    --set crds.enabled=true
+Refer for more details: https://artifacthub.io/packages/helm/cert-manager/cert-manager
+
+
+6. Helm commands cheat sheet
+Refer https://helm.sh/docs/intro/cheatsheet/

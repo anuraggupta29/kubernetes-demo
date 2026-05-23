@@ -3,6 +3,7 @@
 3. Install kubectl
 4. Set environment variable for Minikube and kubectl (the folder where minikube.exe and kubectl.exe is present)
 setx PATH "$env:PATH;C:\tools\kubectl;C:\tools\minikube"
+setx PATH "$env:PATH;C:\tools\kubectl;C:\tools\kubectl"
 
 5. Run minikube from CMD
 minikube start --driver=docker
